@@ -4,6 +4,9 @@ from xlwt import Workbook
 import xlrd
 import PySimpleGUI as sg
 
+# Created By Arkadiusz Nowak, Dawid Pytak, Grzegorz Tokarz
+# Only for academic purpose
+
 # Liczba pol i armii w każdym graczu
 NUM_FIELDS = 10
 NUM_ARMIES = 100
@@ -35,9 +38,6 @@ def play_game(p1, p2):
             p2score += 0.5
 
     score = [p1score, p2score]
-
-    if p2score > p1score:
-        print(p2.armies)
 
     return p1score, p2score, p1.armies, p2.armies
 
@@ -155,10 +155,10 @@ layout = [
                   default_text='[Draw Player One and Player Two tactics]:')],
     [sg.Multiline(size=(80, 4), key='percents', default_text='[Percents of wins and draws]:', disabled=True),
      sg.Multiline(size=(80, 4),
-                  default_text='[Instruction]:\n1. If you want to play, you need to inster array in the [Eneter array '
+                  default_text='[Instruction]:\n1. If you want to play, you need to insert array in the [Enter array '
                                'for human tactic],\n'
                                '2. If you want to play various mix of games just click other buttons,\n'
-                               '3. To clear use a clear button, ',
+                               '3. To truncate use a clear button, ',
                   disabled=True)],
     [sg.Text('Enter array for human tactic:')],
     [sg.Input(key='array', size=(40, 1), default_text='10,10,10,10,10,10,10,10,10,10')]
@@ -298,7 +298,7 @@ while True:
         points = [0, 0, 0]
         number_of_games = 0
         window['percents'].update('[Percents of wins and draws]:')
-        pass
+
     elif event == 'Browse':
         filepath = values['Browse']
         import openpyxl
@@ -309,6 +309,5 @@ while True:
         array = values['array']
         array = array.split(',')
         array = [int(x) for x in array]
-        print(array)
 
 window.close()
