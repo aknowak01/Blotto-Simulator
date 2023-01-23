@@ -133,7 +133,8 @@ playerNash = Player(nash_strategy)
 playerRandom1 = Player(random_strategy)
 playerRandom2 = Player(random_strategy)
 playerHuman = Player(p_strat)
-playerCustomTactics = Player(test)  # Test pobierania strategii z pliku
+# Test pobierania strategii z pliku
+playerCustomTactics = Player(test)
 p1score = p2score = remis = 0
 points = [p1score, p2score, remis]
 number_of_games = 0
